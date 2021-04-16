@@ -4,9 +4,9 @@ import com.example.shelter.models.Animal;
 import com.example.shelter.services.AnimalService;
 import com.example.shelter.services.AnimalServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
 
 @RestController("/animal")
 public class AnimalController {
@@ -21,5 +21,10 @@ public class AnimalController {
   @PostMapping(value = "/save")
   public Animal save(@RequestBody Animal animal){
     return animalService.saveAnimal(animal);
+  }
+
+  @GetMapping(value = "/{id}")
+  public Animal getAnimal(@PathVariable(value = "id") UUID id){
+    return animalService.getAnimal(id);
   }
 }
