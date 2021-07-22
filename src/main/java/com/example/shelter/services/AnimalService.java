@@ -1,9 +1,9 @@
 package com.example.shelter.services;
 
 import com.example.shelter.models.Animal;
+import com.example.shelter.models.Question;
 
 import java.util.List;
-import java.util.UUID;
 
 public interface AnimalService {
 
@@ -11,5 +11,7 @@ public interface AnimalService {
 
   Animal saveAnimal(Animal animal);
 
-  Animal getAnimal(UUID id);
+  Animal getAnimal(Long id);
+
+  Animal askQuestion(Long animalId, Question question) throws Exception;
 }
